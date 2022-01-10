@@ -1,0 +1,28 @@
+﻿namespace Department_MVC_EF.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class employees : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Employees",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Seniority = c.Int(nullable: false),
+                        Position = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.Employees");
+        }
+    }
+}
